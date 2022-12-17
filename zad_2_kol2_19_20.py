@@ -49,10 +49,10 @@ def transfer(liczba_poczatkowa, liczba_docelowa, liczba_krokow, i = 0, ostatni_w
         transfer(operacja_A(liczba_poczatkowa), liczba_docelowa, liczba_krokow, i + 1, 'A', stringus + 'A')
         transfer(operacja_C(liczba_poczatkowa), liczba_docelowa, liczba_krokow, i + 1, 'C', stringus + 'C')
 
-    else:
+    elif not liczba_poczatkowa == operacja_C(liczba_poczatkowa):
         transfer(operacja_A(liczba_poczatkowa), liczba_docelowa, liczba_krokow, i + 1, 'A', stringus + 'A')
         transfer(operacja_B(liczba_poczatkowa), liczba_docelowa, liczba_krokow, i + 1, 'B', stringus + 'B')
 
 
-transfer(1, 420, 30)
+transfer(3, 45, 15)
 print(mozliwosci)
