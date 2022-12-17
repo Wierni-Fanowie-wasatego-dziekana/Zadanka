@@ -14,11 +14,11 @@ def operacja_A(liczba):
     return liczba + 3
 
 def operacja_B(liczba):
-    return 2*liczba
+    return 2 * liczba
 
 def operacja_C(liczba):
     kopia = liczba
-    i=0
+    i = 0
     while kopia > 0:
         if (kopia % 10) % 2 == 0:
             liczba += 1 * 10**i
@@ -31,10 +31,10 @@ def transfer(liczba_poczatkowa, liczba_docelowa, liczba_krokow, i = 0, ostatni_w
     global mozliwosci
     if i > liczba_krokow:
         return False
+
     if liczba_poczatkowa == liczba_docelowa:
         mozliwosci += 1
         print(stringus)
-        return False
 
     if ostatni_wybryk == None:
         transfer(operacja_A(liczba_poczatkowa), liczba_docelowa, liczba_krokow, i+1, 'A', stringus + 'A')
@@ -52,7 +52,6 @@ def transfer(liczba_poczatkowa, liczba_docelowa, liczba_krokow, i = 0, ostatni_w
     elif not liczba_poczatkowa == operacja_C(liczba_poczatkowa):
         transfer(operacja_A(liczba_poczatkowa), liczba_docelowa, liczba_krokow, i + 1, 'A', stringus + 'A')
         transfer(operacja_B(liczba_poczatkowa), liczba_docelowa, liczba_krokow, i + 1, 'B', stringus + 'B')
-
 
 transfer(3, 45, 15)
 print(mozliwosci)
