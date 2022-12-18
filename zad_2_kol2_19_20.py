@@ -28,7 +28,6 @@ def operacja_C(liczba):
 
 mozliwosci = 0
 
-
 def transfer(liczba_poczatkowa, liczba_docelowa, liczba_krokow, i=0, ostatni_wybryk=None, stringus=''):
     global mozliwosci
     if i > liczba_krokow:
@@ -54,7 +53,6 @@ def transfer(liczba_poczatkowa, liczba_docelowa, liczba_krokow, i=0, ostatni_wyb
     elif not liczba_poczatkowa == operacja_C(liczba_poczatkowa):
         transfer(operacja_A(liczba_poczatkowa), liczba_docelowa, liczba_krokow, i + 1, 'A', stringus + 'A')
         transfer(operacja_B(liczba_poczatkowa), liczba_docelowa, liczba_krokow, i + 1, 'B', stringus + 'B')
-
 
 transfer(3, 45, 15)
 print(mozliwosci)
