@@ -21,9 +21,9 @@ def operacja_C(liczba):
     i = 0
     while kopia > 0:
         if (kopia % 10) % 2 == 0:
-            liczba += 1 * 10**i
-        kopia = kopia // 10
-        i+=1
+            liczba += 1 * 10 ** i
+        kopia //= 10
+        i += 1
     return liczba
 
 mozliwosci = 0
@@ -56,3 +56,7 @@ def transfer(liczba_poczatkowa, liczba_docelowa, liczba_krokow, i=0, ostatni_wyb
 
 transfer(3, 45, 15)
 print(mozliwosci)
+
+import this
+
+print(this)
