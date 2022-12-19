@@ -29,14 +29,17 @@ def sum_according_to_pos(T,row1,col1,row2,col2):
     if row1 != row2 and col1 != col2:
         return sum_of_checked_places(T,row1,col1) + sum_of_checked_places(T,row2,col2) - T[row1][col2] - T[row2][col1]
 
-def chess(T,s_max = -1):
+def chess(T,s_max = -1, coordinates = None):
     for i in range(len(T)):
         for j in range(len(T)):
             for k in range(len(T)):
                 for l in range(len(T)):
-                    s_max = max(s_max,sum_according_to_pos(T, i, j, k, l))
+                    if sum_according_to_pos(T,i,j,k,l) > s_max:
+                        coordinates = (i,j,k,l)
+                        s_max = sum_according_to_pos(T,i,j,k,l)
 
-    return s_max
+    return coordinates
+
 print(chess([[4,0,2],[3,0,0],[6,5,3]]))
 print(chess([[1,1,2,3],[-1,3,-1,4], [4,1,5,4], [5,0,3,6]]))
 
