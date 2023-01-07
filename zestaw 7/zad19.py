@@ -18,7 +18,6 @@ class Node:
 def usuwanie_el(header):
     p = header
     w = p.dodawanko(None)
-    q = p
     cnt = 0
     while p.next is not None:
         if p.next.val == p.val:
