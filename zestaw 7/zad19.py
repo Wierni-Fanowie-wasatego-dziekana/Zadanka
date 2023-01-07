@@ -1,3 +1,7 @@
+'''Elementy w liście są uporządkowane według wartości klucza. Proszę
+napisać funkcję usuwającą z listy elementy o nieunikalnym kluczu. Do
+funkcji przekazujemy wskazanie na pierwszy element listy,
+funkcja powinna zwrócić liczbę usuniętych elementów.'''
 class Node:
     def __init__(self,val,next=None):
         self.val = val
