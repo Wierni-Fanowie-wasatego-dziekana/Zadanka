@@ -3,11 +3,13 @@ class Node:
         self.val = val
         self.next = next
 
-    def dodawanko(self, val):
+    def dodawanko(self, T):
         p = self
         while p.next is not None:
             p = p.next
-        p.next = Node(val)
+        for i in range(len(T)):
+            p.next = Node(T[i])
+            p = p.next
 
     def usuwanko(self, val):
         p = self
