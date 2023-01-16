@@ -44,6 +44,28 @@ def chuj(header):
 
     return wart.next
 
+def cipa(header):
+    header.dodawanko(None) # zabezpieczenie przed usunieciem ostatniego
+    p = header
+    bq = p
+    q = bq.next
+    while p.next is not None:
+        while q is not None:
+            if p.val == q.val:
+                bq.next = q.next
+                q = q.next
+            else:
+                bq = q
+                q = q.next
+        p = p.next
+        bq = p
+        q = bq.next
+
+    p = header
+    while p.next.next is not None:
+        p = p.next
+    p.next = None
+
 lista = Node(2)  # To jest pańska ocena
 lista.dodawanko(997)
 lista.dodawanko(211)
@@ -58,5 +80,5 @@ lista.dodawanko(69)
 lista.printowanko()
 
 print()
-lista=chuj(lista)
+cipa(lista)
 lista.printowanko()

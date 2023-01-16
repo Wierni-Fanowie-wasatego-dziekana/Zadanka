@@ -36,14 +36,24 @@ class Node:
             q.next = q.next.next
             q = q.next
 
+def co_drugi(header, cnt = 0):
+    while header.next is not None:
+        if cnt % 2 == 0:
+            header.next = header.next.next
+        cnt += 1
+        header = header.next
 
-lista = Node(2)  # To jest pańska ocena
-lista.dodawanko(997)
-lista.dodawanko(213)
-lista.dodawanko(2115)
-lista.dodawanko(420)
+
+lista = Node(1)  # To jest pańska ocena     # Ale jak to jeden?
+lista.dodawanko(2)
+lista.dodawanko(3)
+lista.dodawanko(4)
+lista.dodawanko(5)
+lista.dodawanko(6)
+lista.dodawanko(7)
+lista.dodawanko(8)
+lista.dodawanko(9)
 lista.printowanko()
-
 lista.usuwankoost()
 
 print()

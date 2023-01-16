@@ -57,4 +57,7 @@ lista.printowanko()
 
 lista = usuwanie_el(lista)
 print('----------')
-print(lista)
+print(ilosc)
+print()
+lista.printowanko()
+

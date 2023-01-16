@@ -8,8 +8,8 @@ powinien zostać zredukowany do listy: [13,19] [2,6] [7,12]
 
 class Node:
     def __init__(self, val=None, next=None):
-        self.val = val
-        self.next = next
+       self.val = val
+       self.next = next
 
     def dodawanko(self, val):
         p = self
@@ -41,7 +41,8 @@ class Node:
 
 
 def redukcjunio(header):
-    p = q = header
+    p = header
+    q = header
     wynikunio = Node(None)
     while p.next is not None:
         q = p.next
@@ -56,37 +57,45 @@ def redukcjunio(header):
     return wynikunio
 
 
-def zawierunio(a,b):
-    flagunia = False
-    if a[0] < b[0] < a[1] or a[0] < b[1] < a[1] or b[0] < a[0] < b[1] or b[0] < a[1] < b[1]:
-        a[0] = min(a[0], b[0])
-        a[1] = max(b[1], a[1])
-        flagunia = True
-    elif a[0] == b[1] or b[0] == a[1]:
-        a[0] = min(a[0], b[0])
-        a[1] = max(b[1], a[1])
-        flagunia = True
-    elif a[0] == b[0]:
-        a[1] = max(a[1], b[1])
-        flagunia = True
-    elif a[0] == b[0] and a[1] == b[1]:
-        flagunia = True
-    elif a[1] == b[1]:
-        a[0] = min(a[0], b[0])
-        flagunia = True
+def zawierunio(p,q):
+    return (min(p[0], q[0]), max(p[1], q[1])) if p[1] >= q[0] and q[1] >= p[0] else None
 
-    if flagunia:
-        return a
-    else:
-        return False
+def overlap(p1, p2):
+    return (p1[0] <= p2[0] <= p1[1] or p1[0] <= p2[1] <= p1[1]
+            or p2[0] <= p1[0] <= p2[1] or p2[0] <= p1[1] <= p2[1])
 
+# def funkcja(header):
+#     p = header
+#     bq = p
+#     q = bq.next
+#     flag = False
+#     while True:
+#         while q is not None:
+#             if overlap(p.val, q.val):
+#                 p.val[0] = min(p.val[0], q.val[0])
+#                 p.val[1] = max(p.val[1], q.val[1])
+#                 bq.next = q.next
+#                 q = q.next
+#                 flag = True
+#             else:
+#                 bq = q
+#                 q = q.next
+#         if not flag and p.next is None:
+#             return header
+#         elif p.next is not None:
+#             p = p.next
+#             bq = p
+#             q = bq.next
+#         else:
+#             return header
+#
 
 listunia = Node([15,19])
-listunia.dodawanko([7,11])
-listunia.dodawanko([2,5])
+listunia.dodawanko([20,21])
+listunia.dodawanko([18,20])
 listunia.dodawanko([5,6])
 listunia.dodawanko([8,12])
-listunia.dodawanko([13,17])
-
-listunia = redukcjunio(listunia)
-listunia.next.printowanko()
+listunia.dodawanko([13,14])
+listusiaaaaa = redukcjunio(listunia)
+#funkcja(listunia)
+listusiaaaaa.next.printowanko()
